@@ -1,0 +1,40 @@
+@prefix ex: <https://example.org/> .
+@prefix sotw: <https://w3id.org/force/sotw#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+
+ex:sotw-current a sotw:SotW ;
+    sotw:currentTime "2026-04-06T04:07:47.187Z"^^xsd:dateTime ;
+    sotw:currentLocation <https://www.iso.org/obp/ui/#iso:code:3166:ID> ;
+    sotw:count [
+        a sotw:Count ;
+        sotw:countValue "0"^^xsd:integer ;
+        odrl:target <https://schema.org/bloodType>
+    ] ;
+    sotw:count [
+        a sotw:Count ;
+        sotw:countValue "0"^^xsd:integer ;
+        odrl:target <https://schema.org/identifier>
+    ] .
+
+ex:sotw-current sotw:count [
+    a sotw:Count ;
+    sotw:countValue "1"^^xsd:integer ;
+    odrl:target <https://schema.org/identifier>
+] .
+ex:sotw-current sotw:count [
+    a sotw:Count ;
+    sotw:countValue "1"^^xsd:integer ;
+    odrl:target <https://schema.org/bloodType>
+] .
+ex:sotw-current sotw:count [
+    a sotw:Count ;
+    sotw:countValue "2"^^xsd:integer ;
+    odrl:target <https://schema.org/identifier>
+] .
+ex:sotw-current sotw:count [
+    a sotw:Count ;
+    sotw:countValue "2"^^xsd:integer ;
+    odrl:target <https://schema.org/bloodType>
+] .

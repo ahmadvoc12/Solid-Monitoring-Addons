@@ -1,0 +1,61 @@
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix dpv: <https://w3id.org/dpv#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <https://example.org/> .
+
+# ===== POLICY 1: Blood Type Access =====
+ex:policy-blood-type-4579e3c3af6546af9b28c6bf72890416 a odrl:Policy ;
+    dct:identifier "urn:uuid:2c5c9cc0-c73e-4f78-8905-c08bd427866d" ;
+    dct:title "Blood Type Access Limit Policy" ;
+    dct:description "Policy yang membatasi akses membaca bloodType maksimal 1 kali per sesi" ;
+    dct:created "2026-02-13T09:00:00Z"^^xsd:dateTime ;
+    dct:creator ex:pod-owner ;
+    odrl:profile <https://w3id.org/dpv/odrl> ;
+    odrl:target <https://schema.org/bloodType> ;
+    <https://w3id.org/force/compliance-report#policyActive> "true"^^xsd:boolean ;
+    odrl:permission _:b752_n3-abc1-permission ;
+    odrl:prohibition _:b752_n3-abc1-prohibition .
+
+_:b752_n3-abc1-permission
+    odrl:assigner ex:pod-owner ;
+    odrl:assignee ex:any-app ;
+    odrl:action odrl:read ;
+    odrl:constraint _:b752_n3-abc1-constraint .
+
+_:b752_n3-abc1-prohibition
+    odrl:assignee ex:any-app ;
+    odrl:action odrl:distribute .
+
+_:b752_n3-abc1-constraint
+    odrl:leftOperand odrl:count ;
+    odrl:operator odrl:lteq ;
+    odrl:rightOperand "1"^^xsd:integer .
+
+# ===== POLICY 2: Identity Access =====
+ex:policy-identity-92c9be5f4abc4654972a93ccbac0082e a odrl:Policy ;
+    dct:identifier "urn:uuid:bd7077e5-990b-4c24-87cb-ce3bbc96fd32" ;
+    dct:title "Identity Access Limit Policy" ;
+    dct:description "Policy yang membatasi akses membaca identifier maksimal 3 kali per sesi" ;
+    dct:created "2026-02-13T09:00:00Z"^^xsd:dateTime ;
+    dct:creator ex:pod-owner ;
+    odrl:profile <https://w3id.org/dpv/odrl> ;
+    odrl:target <https://schema.org/identifier> ;
+    <https://w3id.org/force/compliance-report#policyActive> "true"^^xsd:boolean ;
+    odrl:permission _:b752_n3-def2-permission ;
+    odrl:prohibition _:b752_n3-def2-prohibition .
+
+_:b752_n3-def2-permission
+    odrl:assigner ex:pod-owner ;
+    odrl:assignee ex:any-app ;
+    odrl:action odrl:read ;
+    odrl:constraint _:b752_n3-def2-constraint .
+
+_:b752_n3-def2-prohibition
+    odrl:assignee ex:any-app ;
+    odrl:action odrl:distribute .
+
+_:b752_n3-def2-constraint
+    odrl:leftOperand odrl:count ;
+    odrl:operator odrl:lteq ;
+    odrl:rightOperand "3"^^xsd:integer .

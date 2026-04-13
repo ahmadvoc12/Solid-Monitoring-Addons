@@ -1,0 +1,127 @@
+@prefix ex: <https://example.org/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dpv: <https://w3id.org/dpv#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix odrl: <http://www.w3.org/ns/odrl/2/> .
+@prefix report: <https://w3id.org/force/compliance-report#> .
+
+ex:access-log a prov:Collection .
+# ===== ROOT: Access Record access-1775448467190 =====
+ex:access-1775448467190 a prov:Activity ;
+    prov:startedAtTime "2026-04-06T04:07:47.190Z"^^xsd:dateTime ;
+    prov:wasAssociatedWith ex:health-records ;
+    <https://w3id.org/force/compliance-report#decision> "ALLOWED" ;
+    <https://w3id.org/force/compliance-report#accessMethod> "GET" ;
+    <https://w3id.org/force/compliance-report#accessedResource> <https://solid-monitoring-addon-project-production.up.railway.app/123123/public/health-records/record-54cdf194-a13a-4480-b370-3f89e3bce8c8.ttl> .
+ex:access-log prov:hadMember ex:access-1775448467190 .
+# ===== SUBGRAPH: Personal Data Handling =====
+ex:handling-bundle-1775448467190 a prov:Bundle ;
+    dct:title "Personal Data Handling Context" ;
+    prov:wasGeneratedBy ex:access-1775448467190 .
+ex:access-1775448467190 <https://w3id.org/force/compliance-report#hasHandlingBundle> ex:handling-bundle-1775448467190 .
+ex:handling-1775448467190 a dpv:PersonalDataHandling ;
+    dpv:hasProcessing dpv:Access ;
+    dpv:hasDataSubject ex:pod-owner ;
+    <https://w3id.org/force/compliance-report#belongsToBundle> ex:handling-bundle-1775448467190 .
+ex:handling-bundle-1775448467190 prov:hadMember ex:handling-1775448467190 .
+ex:access-1775448467190 <https://w3id.org/force/compliance-report#hasPersonalDataHandling> ex:handling-1775448467190 .
+# ===== SUBGRAPH: Accessed Fields Collection =====
+ex:fields-bundle-1775448467190 a prov:Bundle ;
+    dct:title "Accessed Data Fields" ;
+    prov:wasGeneratedBy ex:access-1775448467190 .
+ex:access-1775448467190 <https://w3id.org/force/compliance-report#hasFieldsBundle> ex:fields-bundle-1775448467190 .
+# Field[1]: Created Timestamp
+ex:field-1775448467190-0 a <https://w3id.org/force/compliance-report#AccessedDataField> ;
+    <https://w3id.org/force/compliance-report#fieldIRI> <http://purl.org/dc/terms/created> ;
+    <https://w3id.org/force/compliance-report#fieldName> "Created Timestamp" ;
+    <https://w3id.org/force/compliance-report#fieldValue> "2026-04-06T04:07:46.271Z" ;
+    <https://w3id.org/force/compliance-report#isSensitive> "false"^^xsd:boolean ;
+    <https://w3id.org/force/compliance-report#dataCategory> "dpv:PersonalData" ;
+    <https://w3id.org/force/compliance-report#personalDataType> "dpv:Data" ;
+    <https://w3id.org/force/compliance-report#belongsToBundle> ex:fields-bundle-1775448467190 ;
+    prov:wasGeneratedBy ex:access-1775448467190 .
+ex:fields-bundle-1775448467190 prov:hadMember ex:field-1775448467190-0 .
+# Field[2]: Unknown Field
+ex:field-1775448467190-1 a <https://w3id.org/force/compliance-report#AccessedDataField> ;
+    <https://w3id.org/force/compliance-report#fieldIRI> <https://schema.org/identifier> ;
+    <https://w3id.org/force/compliance-report#fieldName> "Unknown Field" ;
+    <https://w3id.org/force/compliance-report#fieldValue> "123123" ;
+    <https://w3id.org/force/compliance-report#isSensitive> "true"^^xsd:boolean ;
+    <https://w3id.org/force/compliance-report#dataCategory> "dpv:PersonalData" ;
+    <https://w3id.org/force/compliance-report#personalDataType> "dpv:PersonalIdentifier" ;
+    <https://w3id.org/force/compliance-report#belongsToBundle> ex:fields-bundle-1775448467190 ;
+    prov:wasGeneratedBy ex:access-1775448467190 .
+ex:fields-bundle-1775448467190 prov:hadMember ex:field-1775448467190-1 .
+ex:handling-1775448467190 dpv:hasPersonalData ex:field-1775448467190-1 .
+# Field[3]: Unknown Field
+ex:field-1775448467190-2 a <https://w3id.org/force/compliance-report#AccessedDataField> ;
+    <https://w3id.org/force/compliance-report#fieldIRI> <https://schema.org/bloodType> ;
+    <https://w3id.org/force/compliance-report#fieldName> "Unknown Field" ;
+    <https://w3id.org/force/compliance-report#fieldValue> "a" ;
+    <https://w3id.org/force/compliance-report#isSensitive> "true"^^xsd:boolean ;
+    <https://w3id.org/force/compliance-report#dataCategory> "dpv:SpecialCategoryPersonalData" ;
+    <https://w3id.org/force/compliance-report#personalDataType> "dpv:HealthData" ;
+    <https://w3id.org/force/compliance-report#belongsToBundle> ex:fields-bundle-1775448467190 ;
+    prov:wasGeneratedBy ex:access-1775448467190 .
+ex:fields-bundle-1775448467190 prov:hadMember ex:field-1775448467190-2 .
+ex:handling-1775448467190 dpv:hasPersonalData ex:field-1775448467190-2 .
+# ===== ROOT: Access Record access-1775448469722 =====
+ex:access-1775448469722 a prov:Activity ;
+    prov:startedAtTime "2026-04-06T04:07:49.722Z"^^xsd:dateTime ;
+    prov:wasAssociatedWith ex:health-records ;
+    <https://w3id.org/force/compliance-report#decision> "VIOLATION" ;
+    <https://w3id.org/force/compliance-report#accessMethod> "GET" ;
+    <https://w3id.org/force/compliance-report#accessedResource> <https://solid-monitoring-addon-project-production.up.railway.app/123123/public/health-records/record-f754e0ee-61df-434b-80a1-37a0f6a54fc1.ttl> .
+ex:access-log prov:hadMember ex:access-1775448469722 .
+# ===== SUBGRAPH: Personal Data Handling =====
+ex:handling-bundle-1775448469722 a prov:Bundle ;
+    dct:title "Personal Data Handling Context" ;
+    prov:wasGeneratedBy ex:access-1775448469722 .
+ex:access-1775448469722 <https://w3id.org/force/compliance-report#hasHandlingBundle> ex:handling-bundle-1775448469722 .
+ex:handling-1775448469722 a dpv:PersonalDataHandling ;
+    dpv:hasProcessing dpv:Access ;
+    dpv:hasDataSubject ex:pod-owner ;
+    <https://w3id.org/force/compliance-report#belongsToBundle> ex:handling-bundle-1775448469722 .
+ex:handling-bundle-1775448469722 prov:hadMember ex:handling-1775448469722 .
+ex:access-1775448469722 <https://w3id.org/force/compliance-report#hasPersonalDataHandling> ex:handling-1775448469722 .
+# ===== SUBGRAPH: Accessed Fields Collection =====
+ex:fields-bundle-1775448469722 a prov:Bundle ;
+    dct:title "Accessed Data Fields" ;
+    prov:wasGeneratedBy ex:access-1775448469722 .
+ex:access-1775448469722 <https://w3id.org/force/compliance-report#hasFieldsBundle> ex:fields-bundle-1775448469722 .
+# Field[1]: Created Timestamp
+ex:field-1775448469722-0 a <https://w3id.org/force/compliance-report#AccessedDataField> ;
+    <https://w3id.org/force/compliance-report#fieldIRI> <http://purl.org/dc/terms/created> ;
+    <https://w3id.org/force/compliance-report#fieldName> "Created Timestamp" ;
+    <https://w3id.org/force/compliance-report#fieldValue> "2026-04-06T04:07:48.935Z" ;
+    <https://w3id.org/force/compliance-report#isSensitive> "false"^^xsd:boolean ;
+    <https://w3id.org/force/compliance-report#dataCategory> "dpv:PersonalData" ;
+    <https://w3id.org/force/compliance-report#personalDataType> "dpv:Data" ;
+    <https://w3id.org/force/compliance-report#belongsToBundle> ex:fields-bundle-1775448469722 ;
+    prov:wasGeneratedBy ex:access-1775448469722 .
+ex:fields-bundle-1775448469722 prov:hadMember ex:field-1775448469722-0 .
+# Field[2]: Unknown Field
+ex:field-1775448469722-1 a <https://w3id.org/force/compliance-report#AccessedDataField> ;
+    <https://w3id.org/force/compliance-report#fieldIRI> <https://schema.org/identifier> ;
+    <https://w3id.org/force/compliance-report#fieldName> "Unknown Field" ;
+    <https://w3id.org/force/compliance-report#fieldValue> "123213" ;
+    <https://w3id.org/force/compliance-report#isSensitive> "true"^^xsd:boolean ;
+    <https://w3id.org/force/compliance-report#dataCategory> "dpv:PersonalData" ;
+    <https://w3id.org/force/compliance-report#personalDataType> "dpv:PersonalIdentifier" ;
+    <https://w3id.org/force/compliance-report#belongsToBundle> ex:fields-bundle-1775448469722 ;
+    prov:wasGeneratedBy ex:access-1775448469722 .
+ex:fields-bundle-1775448469722 prov:hadMember ex:field-1775448469722-1 .
+ex:handling-1775448469722 dpv:hasPersonalData ex:field-1775448469722-1 .
+# Field[3]: Unknown Field
+ex:field-1775448469722-2 a <https://w3id.org/force/compliance-report#AccessedDataField> ;
+    <https://w3id.org/force/compliance-report#fieldIRI> <https://schema.org/bloodType> ;
+    <https://w3id.org/force/compliance-report#fieldName> "Unknown Field" ;
+    <https://w3id.org/force/compliance-report#fieldValue> "c" ;
+    <https://w3id.org/force/compliance-report#isSensitive> "true"^^xsd:boolean ;
+    <https://w3id.org/force/compliance-report#dataCategory> "dpv:SpecialCategoryPersonalData" ;
+    <https://w3id.org/force/compliance-report#personalDataType> "dpv:HealthData" ;
+    <https://w3id.org/force/compliance-report#belongsToBundle> ex:fields-bundle-1775448469722 ;
+    prov:wasGeneratedBy ex:access-1775448469722 .
+ex:fields-bundle-1775448469722 prov:hadMember ex:field-1775448469722-2 .
+ex:handling-1775448469722 dpv:hasPersonalData ex:field-1775448469722-2 .
